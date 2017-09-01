@@ -20,13 +20,13 @@ import java.util.List;
 public class Graph extends View {
     private int realWidth;
     private int realHeight;
-    private final int X_DENSITY = 100, Y_DENSITY = 100;
+    private final int X_DENSITY = 50, Y_DENSITY = 100;
     private int cellWidth,cellHeight;
     private Paint graphPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private int lineWidth = 10;
     private Point zeroByzero = new Point();   // 시작점
     private List<Integer> points = new ArrayList<>();
-    private float[] lines = new float[200];
+    private float[] lines = new float[X_DENSITY*2];
 
     public Graph(Context context) {
         super(context,null);
@@ -61,7 +61,7 @@ public class Graph extends View {
     public void setPoints(List<Integer> points) {
         if(points.size() < 2 ){
             throw new IllegalArgumentException("Require at least two points");
-        }else if(points.size() > Y_DENSITY){
+        }else if(points.size() > X_DENSITY){
             int deletaable = points.size() - Y_DENSITY;
             for(int i = 0 ; i < deletaable; i ++){
                 points.remove(i);

@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     protected void onResume() {
         super.onResume();
-        sm.registerListener(this,s,SensorManager.SENSOR_DELAY_UI);
+        sm.registerListener(this,s,SensorManager.SENSOR_DELAY_GAME);
     }
 
     @Override
